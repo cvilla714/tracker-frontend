@@ -25,8 +25,24 @@ app.get('/', (req, res) => {
   res.send('Hello from index route');
 });
 
-app.get('/protected', (req, res) => {
-  res.send('Hello from protected route');
+app.get('/protected', async (req, res) => {
+  try {
+    const accessToken = req.headers.authorization.split(' ')[1];
+    const response = await axios.get(
+      'https://dev-v88tfgqc.us.auth0.com/userinfo',
+      {
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+        },
+      },
+    );
+    const userInfo = response.data;
+    console.log(userInfo);
+    res.send(userInfo);
+    // res.send('Hello from protected route');
+  } catch (error) {
+    res.send(error.message);
+  }
 });
 
 app.use((req, res, next) => {
