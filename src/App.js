@@ -41,7 +41,7 @@ function App() {
       });
       console.log(response.data);
     } catch (error) {
-      console.error(error.messsage);
+      console.log(error.messsage);
     }
   };
   return (
