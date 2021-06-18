@@ -13,6 +13,8 @@ ReactDOM.render(
         domain="dev-v88tfgqc.us.auth0.com"
         clientId="j8AoqGO5QXuocjqV9vqywdhBg3iWC2C8"
         redirectUri={window.location.origin}
+        audience="this is the back end api connection"
+        scope="openid profile email"
       >
         <App />
       </Auth0Provider>
