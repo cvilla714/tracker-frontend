@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
 app.get('/protected', async (req, res) => {
   try {
     const accessToken = req.headers.authorization.split(' ')[1];
+    console.log(accessToken);
     const response = await axios.get(
       'https://dev-v88tfgqc.us.auth0.com/userinfo',
       {
@@ -38,6 +39,7 @@ app.get('/protected', async (req, res) => {
     );
     const userInfo = response.data;
     console.log(userInfo);
+    // res.send(accessToken);
     res.send(userInfo);
     // res.send('Hello from protected route');
   } catch (error) {
