@@ -13,15 +13,7 @@ function App() {
     getAccessTokenSilently,
   } = useAuth0();
 
-  const callApi = async () => {
-    try {
-      const response = await axios.get('http://localhost:4000');
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+  //this is the route when using node as back end protected route
   // const callProtectedApi = async () => {
   //   try {
   //     const response = await axios.get('http://localhost:4000/protected');
@@ -31,10 +23,42 @@ function App() {
   //   }
   // };
 
+  // const callApi = async () => {
+  //   try {
+  //     const response = await axios.get('http://localhost:4000');
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  // this is the route when using node as back end sending the token
+  // const callProtectedApi = async () => {
+  //   try {
+  //     const token = await getAccessTokenSilently();
+  //     const response = await axios.get('http://localhost:4000/protected', {
+  //       headers: {
+  //         authorization: `Bearer ${token}`,
+  //       },
+  //     });
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.log(error.messsage);
+  //   }
+  // };
+
+  const callApi = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000');
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const callProtectedApi = async () => {
     try {
       const token = await getAccessTokenSilently();
-      const response = await axios.get('http://localhost:4000/protected', {
+      const response = await axios.get('http://localhost:5000/private', {
         headers: {
           authorization: `Bearer ${token}`,
         },
