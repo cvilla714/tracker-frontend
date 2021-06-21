@@ -39,7 +39,6 @@ app.get('/protected', async (req, res) => {
     );
     const userInfo = response.data;
     console.log(userInfo);
-    // res.send(accessToken);
     res.send(userInfo);
     // res.send('Hello from protected route');
   } catch (error) {
