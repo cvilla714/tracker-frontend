@@ -15,7 +15,7 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
-    "dev":"concurrently 'npm start' 'cd api && npm start' ",
+    "dev": "concurrently 'npm start' 'cd api && npm start' ",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
